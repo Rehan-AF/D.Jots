@@ -1,13 +1,12 @@
+import Header from "../../components/Header";
+import Services from "../../components/Services";
+
 const Home = () => {
   return (
     <>
       <div>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure rerum
-          vitae corrupti optio, unde ipsum, beatae veniam repudiandae,
-          consectetur id blanditiis cumque rem fuga architecto delectus sint
-          odio sunt culpa!
-        </p>
+       <Header />
+       <Services />
       </div>
     </>
   );
