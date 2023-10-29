@@ -13,7 +13,7 @@ async function main() {
   const lockedAmount = hre.ethers.parseEther('0.000');
 
   const DJots = await hre.ethers.deployContract(
-    'MessageContract'
+    'App'
     // , [unlockTime], {
     //   value: lockedAmount,
     // }
