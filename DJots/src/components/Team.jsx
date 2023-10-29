@@ -1,46 +1,7 @@
-const people = [
-    {
-      name: 'Leonard Krasner',
-      role: 'Senior Designer',
-      imageUrl:
-        'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-      twitterUrl: '#',
-      linkedinUrl: '#',
-    },
-    {
-        name: 'Leonard Krasner',
-        role: 'Senior Designer',
-        imageUrl:
-          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
-      },
-      {
-        name: 'Leonard Krasner',
-        role: 'Senior Designer',
-        imageUrl:
-          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
-      },
-      {
-        name: 'Leonard Krasner',
-        role: 'Senior Designer',
-        imageUrl:
-          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
-      },
-      {
-        name: 'Leonard Krasner',
-        role: 'Senior Designer',
-        imageUrl:
-          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
-      },
-    // More people...
-  ]
+
+  import alishan from "../assets/team-alishan.png"
+  import rehan from "../assets/rehan.jpeg"
+ import {GithubOutlined} from "@ant-design/icons"
   
   export default function Team() {
     return (
@@ -58,16 +19,14 @@ const people = [
           >
             {people.map((person) => (
               <li key={person.name} className="rounded-2xl bg-gray-800 px-8 py-10">
-                <img className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src={person.imageUrl} alt="" />
+                <img className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56 object-cover " src={person.image} alt="" />
                 <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{person.name}</h3>
                 <p className="text-sm leading-6 text-gray-400">{person.role}</p>
                 <ul role="list" className="mt-6 flex justify-center gap-x-6">
                   <li>
                     <a href={person.twitterUrl} className="text-gray-400 hover:text-gray-300">
-                      <span className="sr-only">Twitter</span>
-                      <svg className="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                      </svg>
+                      <span className="sr-only">GitHub</span>
+                      <GithubOutlined style={{ fontSize: '20px' }} />
                     </a>
                   </li>
                   <li>
@@ -90,4 +49,45 @@ const people = [
       </div>
     )
   }
-  
+  const people = [
+    {
+      name: 'Ali Shan',
+      role: 'Developer',
+      image: alishan,
+
+      Github: ' https://github.com/Shan-barcha',
+      linkedinUrl: '#',
+    },
+    {
+        name: 'Rehan Afzal',
+        role: 'Developer',
+        image: rehan,
+        Github: 'https://github.com/Rehan-AF',
+        linkedinUrl: '#',
+      },
+      {
+        name: 'Leonard Krasner',
+        role: 'Senior Designer',
+        image:
+          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        twitterUrl: '#',
+        linkedinUrl: '#',
+      },
+      {
+        name: 'Leonard Krasner',
+        role: 'Senior Designer',
+        image:
+          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        twitterUrl: '#',
+        linkedinUrl: '#',
+      },
+      {
+        name: 'Leonard Krasner',
+        role: 'Senior Designer',
+        image:
+          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        twitterUrl: '#',
+        linkedinUrl: '#',
+      },
+    // More people...
+  ]
