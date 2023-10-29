@@ -10,7 +10,7 @@ const navigation = [
   { name: 'Notes', href: '#' },
   { name: 'Articles', href: '#' },
   { name: 'Research Paper', href: '#' },
-  { name: 'Log in', href: '#' },
+  { name: 'Wallet Connect', href: '/Login' },
 ];
 
 export default function Header() {
@@ -25,8 +25,8 @@ export default function Header() {
               className="flex items-center justify-between lg:justify-start"
               aria-label="Global"
             >
-              <a href="#" className="-m-1.5 p-1.5">
-                <img alt="Your Company" className="h-12 w-12" src={logo} />
+              <a href="#" className="-m-1.5 ">
+                <img alt="Your Company" className=" w-12" src={logo} />
               </a>
               <button
                 type="button"
