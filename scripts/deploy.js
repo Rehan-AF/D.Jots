@@ -10,21 +10,21 @@ async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
   const unlockTime = currentTimestampInSeconds + 60;
 
-  const lockedAmount = hre.ethers.parseEther('0.001');
+  const lockedAmount = hre.ethers.parseEther('0.000');
 
   const DJots = await hre.ethers.deployContract(
-    'notes'
+    'MessageContract'
     // , [unlockTime], {
     //   value: lockedAmount,
     // }
   );
 
   await DJots.waitForDeployment();
-
+  const address = await DJots.getAddress();
   console.log(
     `Lock with ${ethers.formatEther(
       lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${DJots.target}`
+    )}ETH and unlock timestamp ${unlockTime} deployed to ${address}`
   );
 }
 

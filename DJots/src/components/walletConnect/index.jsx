@@ -3,16 +3,12 @@ import { ethers } from 'ethers';
 import abi from '../../contractJSON/MessageContract.json';
 import NotesComponent from '../notes';
 import { Web3Provider } from '@ethersproject/providers';
-
+import { useDispatch } from 'react-redux';
+import { setContract } from '../../redux';
 const Template = ({ children }) => {
   const [account, setAccount] = useState(null);
   const [reload, setReload] = useState(false);
-  const [state, setState] = useState({
-    provider: null,
-    signer: null,
-    contract: null,
-  });
-
+  const dispatch = useDispatch();
   window.ethereum.on('accountsChanged', async () => {
     setReload(true);
   });
@@ -29,6 +25,7 @@ const Template = ({ children }) => {
           });
 
           setAccount(account);
+          localStorage.setItem('account', account);
           const provider = new Web3Provider(ethereum);
           const signer = provider.getSigner();
           const contract = new ethers.Contract(
@@ -37,7 +34,7 @@ const Template = ({ children }) => {
             signer
           );
           console.log(contract);
-          setState({ provider, signer, contract });
+          dispatch(setContract({ provider, signer, contract }));
           setReload(false);
         } catch (e) {
           console.log(e.message);
@@ -58,7 +55,6 @@ const Template = ({ children }) => {
         <p>Please connect your MetaMask wallet.</p>
       )}
       {children}
-      <NotesComponent contract={state} />
     </div>
   );
 };
