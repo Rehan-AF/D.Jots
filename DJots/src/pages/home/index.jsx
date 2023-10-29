@@ -1,12 +1,13 @@
-import Header from "../../components/Header";
-import Services from "../../components/Services";
+import { Button } from 'antd';
+import Header from '../../components/Header';
+import Services from '../../components/Services';
 
 const Home = () => {
   return (
     <>
       <div>
-       <Header />
-       <Services />
+        <Header />
+        <Services />
       </div>
     </>
   );
