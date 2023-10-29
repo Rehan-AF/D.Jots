@@ -1,9 +1,8 @@
-
-import HeaderImage from "../assets/headerimg.png"
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import logo from "../assets/logo.png"
+import HeaderImage from '../assets/headerimg.png';
+import { useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import logo from '../assets/logo.png';
 
 const navigation = [
   { name: 'Home', href: '#' },
@@ -12,23 +11,22 @@ const navigation = [
   { name: 'Articles', href: '#' },
   { name: 'Research Paper', href: '#' },
   { name: 'Log in', href: '#' },
-]
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="bg-white">
       <div className="bg-[#2F2035]">
         <div className="mx-auto max-w-7xl ">
           <div className="px-6 p-4 lg:max-w-3xl lg:pl-6 lg:pr-0 w-full">
-            <nav className="flex items-center justify-between lg:justify-start" aria-label="Global">
+            <nav
+              className="flex items-center justify-between lg:justify-start"
+              aria-label="Global"
+            >
               <a href="#" className="-m-1.5 p-1.5">
-                <img
-                  alt="Your Company"
-                  className="h-12 w-12"
-                  src={logo}
-                />
+                <img alt="Your Company" className="h-12 w-12" src={logo} />
               </a>
               <button
                 type="button"
@@ -40,15 +38,25 @@ export default function Header() {
               </button>
               <div className="hidden lg:ml-8 lg:flex lg:gap-x-10">
                 {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-sm font-semibold leading-6 text-white"
+                  >
                     {item.name}
                   </a>
                 ))}
               </div>
             </nav>
           </div>
-        </div></div>
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        </div>
+      </div>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -85,9 +93,7 @@ export default function Header() {
           </div>
         </Dialog.Panel>
       </Dialog>
-      <header className="absolute inset-x-0 top-0 z-50">
-
-      </header>
+      <header className="absolute inset-x-0 top-0 z-50"></header>
 
       <div className="relative">
         <div className="mx-auto max-w-7xl">
@@ -107,7 +113,11 @@ export default function Header() {
                   Preserve and Secure your Efforts on the D.Jots
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Save Your Efforts, Save on Blockchain" safeguards your valuable work using blockchain technology. Our decentralized platform ensures the security and accessibility of your contributions, fostering a collaborative space for knowledge exchange. Join us in embracing the future of secure information sharing.
+                  Save Your Efforts, Save on Blockchain safeguards your valuable
+                  work using blockchain technology. Our decentralized platform
+                  ensures the security and accessibility of your contributions,
+                  fostering a collaborative space for knowledge exchange. Join
+                  us in embracing the future of secure information sharing.
                 </p>
               </div>
             </div>
@@ -122,5 +132,5 @@ export default function Header() {
         </div>
       </div>
     </div>
-  )
+  );
 }
