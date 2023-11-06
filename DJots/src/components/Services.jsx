@@ -1,3 +1,11 @@
+import noteimage from '../assets/notes.jpg';
+import articles from '../assets/articles.jpg';
+import Prediction from '../assets/predictions1.jpg';
+import soon from '../assets/soon.jpg';
+import research from '../assets/research.jpg';
+import Modal from 'antd/es/modal/Modal';
+import NotesComponent from './notes';
+import PredictionComponent from './prediction';
 const posts = [
   {
     id: 1,
@@ -17,7 +25,7 @@ const posts = [
     description:
       'Ensure the immutability of your predictions by uploading them to the blockchain through D.Jots. Secure your foresights with the power of decentralized technology',
     image: Prediction,
-    buttonText: 'Upload',
+    buttonText: <PredictionComponent />,
   },
   {
     id: 2,
@@ -47,13 +55,6 @@ const posts = [
   },
   // More posts...
 ];
-import noteimage from '../assets/notes.jpg';
-import articles from '../assets/articles.jpg';
-import Prediction from '../assets/predictions1.jpg';
-import soon from '../assets/soon.jpg';
-import research from '../assets/research.jpg';
-import Modal from 'antd/es/modal/Modal';
-import NotesComponent from './notes';
 export default function Services() {
   return (
     <div className="bg-white py-24 sm:py-32">

@@ -11,7 +11,7 @@ const Template = ({ children }) => {
 
   window.ethereum.on('accountsChanged', async (accounts) => {
     if (!accounts.length) {
-      localStorage.setItem('account', null);
+      localStorage.removeItem('account');
       dispatch(setContract(null));
       setAccount(null);
     } else {
@@ -34,7 +34,7 @@ const Template = ({ children }) => {
           });
 
           setAccount(account);
-          localStorage.setItem('account', account);
+          localStorage.setItem('account', account[0]);
           const provider = new Web3Provider(ethereum);
           const signer = provider.getSigner();
           const contract = new ethers.Contract(
@@ -42,7 +42,6 @@ const Template = ({ children }) => {
             contractABI,
             signer
           );
-          console.log(contract);
           dispatch(setContract({ provider, signer, contract }));
           setReload(false);
         } catch (e) {

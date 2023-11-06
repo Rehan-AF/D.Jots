@@ -4,11 +4,11 @@ import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const NotesComponent = () => {
+const PredictionComponent = () => {
   const contract = useSelector((state) => state.productsSlice.contract);
   const [formValues, setFormValues] = useState({
     name: '',
-    note: '',
+    prediction: '',
   });
   const [state, setItemModal] = useState({
     open: '',
@@ -27,10 +27,10 @@ const NotesComponent = () => {
     });
   };
   const handleOk = async () => {
-    console.log(formValues.name, formValues.note);
-    const transaction = await contract?.contract.blockNote(
+    console.log(formValues.name, formValues.prediction);
+    const transaction = await contract?.contract.blockPridiction(
       formValues.name,
-      formValues.note,
+      formValues.prediction,
       {
         gasLimit: 3000000,
       }
@@ -50,10 +50,10 @@ const NotesComponent = () => {
         className="bg-blue-500 px-4 py-3 w-full text-xl rounded text-white"
         onClick={handleModalOpen}
       >
-        write note
+        Write Your Prediction
       </button>
       <Modal
-        title="Notes"
+        title="Predictions"
         open={state.open}
         confirmLoading={state.loading}
         onCancel={handleCancel}
@@ -80,10 +80,10 @@ const NotesComponent = () => {
             id="data"
             name="data"
             type="text"
-            placeholder="Write your note"
+            placeholder="Write your prediction"
             className="p-2 outline-none border border-[#D9D9D9] rounded-md mt-2 resize-none "
-            onChange={(e) => handleInputChange('note', e.target.value)}
-            value={formValues.note}
+            onChange={(e) => handleInputChange('prediction', e.target.value)}
+            value={formValues.prediction}
           />
         </div>
       </Modal>
@@ -91,4 +91,4 @@ const NotesComponent = () => {
   );
 };
 
-export default NotesComponent;
+export default PredictionComponent;
