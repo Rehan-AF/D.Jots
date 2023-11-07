@@ -6,8 +6,8 @@ import logo from '../../assets/logo.png';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Prediction', href: '/predictions' },
   { name: 'Notes', href: '/notes' },
+  { name: 'Prediction', href: '/predictions' },
   { name: 'Articles', href: '#' },
   { name: 'Research Paper', href: '#' },
   { name: 'Wallet Connect', href: '/Login' },
