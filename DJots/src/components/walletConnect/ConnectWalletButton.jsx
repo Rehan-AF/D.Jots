@@ -6,7 +6,7 @@ const ConnectWalletButton = () => {
     <div>
       <Button>
         <WalletOutlined />
-        connect wallet
+        Connect wallet
       </Button>
     </div>
   );

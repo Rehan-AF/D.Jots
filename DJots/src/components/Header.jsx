@@ -19,7 +19,7 @@ export default function Header() {
               <polygon points="0,0 90,0 50,100 0,100" />
             </svg>
 
-            <div className="relative px-6 py-24 md:py-22 sm:py-40 lg:px-8  lg:pr-0">
+            <div className="relative px-6 py-4 lg:py-24 md:py-22 sm:py-40 lg:px-8  lg:pr-0">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                 <h1 className="text-[30px] font-semibold tracking-tight lg:leading-[70px] text-[#3f065c] sm:text-6xl sans-serif">
                   Preserve and Secure your Efforts on the D.Jots
