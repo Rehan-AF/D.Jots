@@ -6,7 +6,7 @@ import 'animate.css';
 
 function App() {
   return (
-    <div className='animate__backInDown'>
+    <div className="animate__backInDown">
       <Provider store={store}>
         <Template>
           <Routers />
