@@ -6,11 +6,11 @@ import 'animate.css';
 
 function App() {
   return (
-    <div className=''>
+    <div className="">
       <Provider store={store}>
-        {/* <Template> */}
+        <Template>
           <Routers />
-        {/* </Template> */}
+        </Template>
       </Provider>
     </div>
   );

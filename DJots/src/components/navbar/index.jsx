@@ -2,8 +2,8 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import logo from '../../assets/logo.png';
-import Template from '../walletConnect';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -15,7 +15,8 @@ const navigation = [
 ];
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const account = useSelector((state) => state.productsSlice.account);
+  console.log(account);
   return (
     <div>
       <div className="bg-[#2F2035]">
@@ -47,9 +48,7 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
-              <div className='hidden lg:flex'>
-              <Template />
-              </div>
+              <div className="hidden lg:flex text-white">{account}</div>
             </nav>
           </div>
         </div>
@@ -81,7 +80,6 @@ const Navbar = () => {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <Link
@@ -91,11 +89,8 @@ const Navbar = () => {
                   >
                     {item.name}
                   </Link>
-
                 ))}
-              <div className='lg:hidden'>
-              <Template />
-              </div>
+                <div className="lg:hidden"></div>
               </div>
             </div>
           </div>

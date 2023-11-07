@@ -3,10 +3,9 @@ import { ethers } from 'ethers';
 import abi from '../../contractJSON/App.json';
 import { Web3Provider } from '@ethersproject/providers';
 import { useDispatch } from 'react-redux';
-import { setContract } from '../../redux';
+import { setAccount, setContract } from '../../redux';
 import { message } from 'antd';
 const Template = ({ children }) => {
-  const [account, setAccount] = useState(null);
   const [reload, setReload] = useState(false);
   const dispatch = useDispatch();
   try {
@@ -14,7 +13,7 @@ const Template = ({ children }) => {
       if (!accounts.length) {
         localStorage.removeItem('account');
         dispatch(setContract(null));
-        setAccount(null);
+        dispatch(setAccount(null));
       } else {
         setReload(true);
       }
@@ -26,8 +25,9 @@ const Template = ({ children }) => {
   // messgae 0x9e795874E53e745Badc7f44a682299B35d864307
   // app 0xE40439e97b32c3e1E8b4e45FCa9F86ae17d771a8
   // app new 0x3d13c9613429753DF4A847B93184494aEcCB3998
+  // lastest app with new data 0x82CD9688627B19b91a006216C0225f0Cd0c28CE9
   useEffect(() => {
-    const contractAddress = '0x3d13c9613429753DF4A847B93184494aEcCB3998';
+    const contractAddress = '0x82CD9688627B19b91a006216C0225f0Cd0c28CE9';
     const contractABI = abi.abi;
 
     const loadBlockchainData = async () => {
@@ -37,8 +37,6 @@ const Template = ({ children }) => {
           const account = await ethereum.request({
             method: 'eth_requestAccounts',
           });
-
-          setAccount(account);
           localStorage.setItem('account', account[0]);
           const provider = new Web3Provider(ethereum);
           const signer = provider.getSigner();
@@ -48,6 +46,8 @@ const Template = ({ children }) => {
             signer
           );
           dispatch(setContract({ provider, signer, contract }));
+          dispatch(setAccount(account[0]));
+
           setReload(false);
         } catch (e) {
           console.log(e.message);
@@ -60,16 +60,7 @@ const Template = ({ children }) => {
     loadBlockchainData();
   }, [reload]);
 
-  return (
-    <div>
-      {account ? (
-        <p className='lg:text-sm font-semibold leading-6 break-all lg:break-normal lg:text-white -mx-3 block rounded-lg px-3 py-2 text-base  text-gray-900 '>Wallet Address: {account}</p>
-      ) : (
-        <p>Please connect your MetaMask wallet.</p>
-      )}
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 export default Template;

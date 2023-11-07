@@ -21,16 +21,21 @@ contract App {
 
     struct Article {
         string name;
-        string artileTitle;
+        string fileName;
+        string size;
+        string lastModified;
         string hash;
         address sender;
         uint256 timestamp;
         uint256 blockNumber;
     }
     Article[] articles;
+
     struct Paper {
         string name;
-        string artileTitle;
+        string fileName;
+        string size;
+        string lastModified;
         string hash;
         address sender;
         uint256 timestamp;
@@ -66,13 +71,17 @@ contract App {
 
     function blockArticles(
         string calldata name,
-        string calldata artileTitle,
+        string calldata fileName,
+        string calldata size,
+        string calldata lastModified,
         string calldata articleHash
     ) external {
         articles.push(
             Article(
                 name,
-                artileTitle,
+                fileName,
+                size,
+                lastModified,
                 articleHash,
                 msg.sender,
                 block.timestamp,
@@ -87,13 +96,17 @@ contract App {
 
     function blockResearchPaper(
         string calldata name,
-        string calldata researchPaperTitle,
+        string calldata fileName,
+        string calldata size,
+        string calldata lastModified,
         string calldata paperHash
     ) external {
         researchPapers.push(
             Paper(
                 name,
-                researchPaperTitle,
+                fileName,
+                size,
+                lastModified,
                 paperHash,
                 msg.sender,
                 block.timestamp,
