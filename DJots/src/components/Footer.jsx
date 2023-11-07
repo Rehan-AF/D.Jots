@@ -1,10 +1,12 @@
 const navigation = {
     main: [
-      { name: 'Notes', href: '#' },
+      { name: 'Notes', href: '/notes' },
       { name: 'Articles', href: '#' },
-      { name: 'Predictions', href: '#' },
+      { name: 'Predictions', href: '/predictions' },
       { name: 'Research', href: '#' },
       { name: 'Partners', href: '#' },
+      { name: 'Wallet Connect', href: '/Login' },
+    
     ],
     social: [
       {
@@ -93,7 +95,7 @@ const navigation = {
             ))}
           </div>
           <p className="mt-10 text-center text-xs leading-5 text-gray-500">
-            &copy; 2020 Your Company, Inc. All rights reserved.
+            &copy; 2023 D.jots, Inc. All rights reserved.
           </p>
         </div>
       </footer>
