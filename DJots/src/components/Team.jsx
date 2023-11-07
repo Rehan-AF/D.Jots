@@ -4,6 +4,7 @@
  import {GithubOutlined} from "@ant-design/icons"
  import wasi from "../assets/wasi.jpeg"
  import aman from "../assets/aman.jpeg"
+ import jawad from "../assets/jawad.jpeg"
   
   export default function Team() {
     return (
@@ -68,7 +69,7 @@
       },
       {
         name: 'Sirshar yairbaig',
-        role: 'Designer',
+        role: 'Developer',
         image: wasi,
         Github: 'https://github.com/wasisirshar',
         linkedinUrl: 'https://www.linkedin.com/in/wasi-sirshar-89b950253/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
@@ -81,12 +82,11 @@
         linkedinUrl: 'https://www.linkedin.com/in/aman-aly-1457a8228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
       {
-        name: 'Leonard Krasner',
-        role: 'Senior Designer',
-        image:
-          'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
+        name: 'Jawad Karim',
+        role: 'Developer',
+        image: jawad,
+          Github: 'https://github.com/jawadkarim96',
+        linkedinUrl: 'https://www.linkedin.com/in/jawad-karim-544594263/',
       },
     // More people...
   ]
