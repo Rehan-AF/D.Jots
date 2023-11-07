@@ -63,7 +63,7 @@ const Template = ({ children }) => {
   return (
     <div>
       {account ? (
-        <p>Connected Account: {account}</p>
+        <p className='lg:text-sm font-semibold leading-6 break-all lg:break-normal lg:text-white -mx-3 block rounded-lg px-3 py-2 text-base  text-gray-900 '>Wallet Address: {account}</p>
       ) : (
         <p>Please connect your MetaMask wallet.</p>
       )}
