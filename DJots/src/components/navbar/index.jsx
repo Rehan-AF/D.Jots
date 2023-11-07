@@ -2,6 +2,7 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import logo from '../../assets/logo.png';
 
 const navigation = [
@@ -14,18 +15,19 @@ const navigation = [
 ];
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const account = useSelector((state) => state.productsSlice.account);
+  console.log(account);
   return (
     <div>
       <div className="bg-[#2F2035]">
         <div className="mx-auto max-w-7xl ">
-          <div className="px-6 p-4 lg:max-w-3xl lg:pl-6 lg:pr-0 w-full">
+          <div className="px-6 p-4 md:max-w-full lg:pl-6 lg:pr-0 w-full">
             <nav
               className="flex items-center justify-between lg:justify-start"
               aria-label="Global"
             >
               <Link to="/" className="-m-1.5 ">
-                <img alt="Your Company" className=" w-12" src={logo} />
+                <img alt="D.Jots" className=" w-12" src={logo} />
               </Link>
               <button
                 type="button"
@@ -35,7 +37,7 @@ const Navbar = () => {
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
-              <div className="hidden lg:ml-8 lg:flex lg:gap-x-10">
+              <div className="hidden lg:ml-8 lg:flex lg:gap-x-10 w-full">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -46,6 +48,7 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
+              <div className="hidden lg:flex text-white">{account}</div>
             </nav>
           </div>
         </div>
@@ -61,7 +64,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5 ">
               <img
-                className="h-16 w-16 bg-black border rounded-lg "
+                className="w-10 bg-black border rounded-lg "
                 src={logo}
                 alt=""
               />
@@ -87,6 +90,7 @@ const Navbar = () => {
                     {item.name}
                   </Link>
                 ))}
+                <div className="lg:hidden"></div>
               </div>
             </div>
           </div>

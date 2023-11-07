@@ -75,18 +75,17 @@
         linkedinUrl: 'https://www.linkedin.com/in/wasi-sirshar-89b950253/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       },
       {
-        name: 'Aman Aly',
-        role: 'Designer',
-        image: aman,
-        Github: 'https://github.com/devamanaly',
-        linkedinUrl: 'https://www.linkedin.com/in/aman-aly-1457a8228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-      },
-      {
         name: 'Jawad Karim',
         role: 'Developer',
         image: jawad,
           Github: 'https://github.com/jawadkarim96',
         linkedinUrl: 'https://www.linkedin.com/in/jawad-karim-544594263/',
       },
-    // More people...
+      {
+        name: 'Aman Aly',
+        role: 'Designer',
+        image: aman,
+        Github: 'https://github.com/devamanaly',
+        linkedinUrl: 'https://www.linkedin.com/in/aman-aly-1457a8228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      }
   ]

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   contract: null,
+  account: null,
 };
 const productsSlice = createSlice({
   name: 'store',
@@ -10,7 +11,10 @@ const productsSlice = createSlice({
     setContract(state, action) {
       state.contract = action.payload;
     },
+    setAccount(state, action) {
+      state.account = action.payload;
+    },
   },
 });
-export const { setContract } = productsSlice.actions;
+export const { setContract, setAccount } = productsSlice.actions;
 export default productsSlice.reducer;

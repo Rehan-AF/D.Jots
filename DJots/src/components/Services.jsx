@@ -7,6 +7,7 @@ import Modal from 'antd/es/modal/Modal';
 import 'animate.css';
 import NotesComponent from './notes';
 import PredictionComponent from './prediction';
+import ArticleHash from './HashArticle';
 const posts = [
   {
     id: 1,
@@ -35,7 +36,7 @@ const posts = [
     description:
       'Secure your articles using the blockchain through D.Jots. Preserve your written work with unmatched data integrity and permanence.',
     image: articles,
-    buttonText: 'Upload',
+    buttonText: <ArticleHash />,
   },
   {
     id: 2,
