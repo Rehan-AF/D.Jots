@@ -4,6 +4,7 @@ import Prediction from '../assets/predictions1.jpg';
 import soon from '../assets/soon.jpg';
 import research from '../assets/research.jpg';
 import Modal from 'antd/es/modal/Modal';
+import 'animate.css';
 import NotesComponent from './notes';
 import PredictionComponent from './prediction';
 const posts = [
@@ -60,7 +61,7 @@ export default function Services() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl animate__animated animate__bounce animate__delay-2s">
             Services We provide{' '}
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
@@ -68,13 +69,13 @@ export default function Services() {
             research on the blockchain for lasting data security.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 ">
           {posts.map((post) => (
             <article
               key={post.id}
               className="flex flex-col items-start justify-between"
             >
-              <div className="relative w-full">
+              <div className="relative w-full  animate__flipInX ">
                 <img
                   src={post.image}
                   alt=""
