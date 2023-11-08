@@ -11,7 +11,7 @@ const navigation = [
   { name: 'Prediction', href: '/predictions' },
   { name: 'Articles', href: '/articles' },
   { name: 'Research Paper', href: '/papers' },
-  { name: 'Wallet Connect', href: '/Login' },
+  // { name: 'Wallet Connect', href: '/Login' },
 ];
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

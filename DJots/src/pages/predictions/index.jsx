@@ -72,7 +72,7 @@ const ShowPredictions = () => {
   //   console.log(notes[0][3]);
   return (
     <div className="p-5">
-      <Button onClick={getData}>Get Data</Button>
+      <Button onClick={getData} className='bg-[#3f065c] px-5 py-5 text-white flex justify-center items-center '>Get Data</Button>
       <div className="mt-5">
         <Table className="" dataSource={notes} columns={columns} />
       </div>
