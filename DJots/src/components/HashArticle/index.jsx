@@ -28,14 +28,13 @@ const ArticleHash = () => {
     setHash(null);
     setProgress(0);
 
-    console.log(loading, 'file loading');
     if (file) {
       calculateHash(file);
       const fileName = file.name;
       const fileSize = `${file.size} bytes`;
       const lastModified = file.lastModified;
       const lastModifiedDate = new Date(lastModified).toLocaleString();
-      console.log(loading, 'file loading');
+
       setFileDetails({
         fileName: fileName,
         fileSize: fileSize,
@@ -99,19 +98,36 @@ const ArticleHash = () => {
     });
   };
   const handleOk = async () => {
-    console.log(contract.contract);
-    const transaction = await contract.contract.blockArticles(
-      formValues.name,
-      fileDetails.fileName,
-      fileDetails.fileSize,
-      fileDetails.lastModified,
-      hash,
-      {
-        gasLimit: 3000000,
-      }
-    );
-
-    await transaction.wait();
+    try {
+      message.info('transaction is in process');
+      console.log(contract.contract);
+      const transaction = await contract.contract.blockArticles(
+        formValues.name,
+        fileDetails.fileName,
+        fileDetails.fileSize,
+        fileDetails.lastModified,
+        hash,
+        {
+          gasLimit: 3000000,
+        }
+      );
+      setFormValues({
+        name: '',
+      });
+      setHash('');
+      setFileDetails({
+        fileName: '',
+        fileSize: '',
+        lastModified: '',
+      });
+      setProgress(0);
+      setLoading(false);
+      handleCancel();
+      message.info('you will receive notification from metaMask on success');
+      await transaction.wait();
+    } catch (e) {
+      message.error(e.message);
+    }
   };
   const handleInputChange = (fieldName, newValue) => {
     setFormValues((prevState) => ({

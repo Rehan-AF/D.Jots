@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Button, Modal } from 'antd';
+import { Button, Modal, message } from 'antd';
 // import { ethers } from 'hardhat';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -27,15 +27,25 @@ const PredictionComponent = () => {
     });
   };
   const handleOk = async () => {
-    console.log(formValues.name, formValues.prediction);
-    const transaction = await contract?.contract.blockPridiction(
-      formValues.name,
-      formValues.prediction,
-      {
-        gasLimit: 3000000,
-      }
-    );
-    await transaction.wait();
+    try {
+      message.info('transaction is in process');
+      const transaction = await contract?.contract.blockPridiction(
+        formValues.name,
+        formValues.prediction,
+        {
+          gasLimit: 3000000,
+        }
+      );
+      setFormValues({
+        name: '',
+        prediction: '',
+      });
+      handleCancel();
+      message.info('you will receive notification from metaMask on success');
+      await transaction.wait();
+    } catch (e) {
+      message.error(e.message);
+    }
   };
   const handleInputChange = (fieldName, newValue) => {
     setFormValues((prevState) => ({

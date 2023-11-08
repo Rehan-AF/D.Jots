@@ -27,15 +27,25 @@ const NotesComponent = () => {
     });
   };
   const handleOk = async () => {
-    console.log(formValues.name, formValues.note);
-    const transaction = await contract?.contract.blockNote(
-      formValues.name,
-      formValues.note,
-      {
-        gasLimit: 3000000,
-      }
-    );
-    await transaction.wait();
+    try {
+      message.info('transaction is in process');
+      const transaction = await contract?.contract.blockNote(
+        formValues.name,
+        formValues.note,
+        {
+          gasLimit: 3000000,
+        }
+      );
+      setFormValues({
+        name: '',
+        note: '',
+      });
+      handleCancel();
+      message.info('you will receive notification from metaMask on success');
+      await transaction.wait();
+    } catch (e) {
+      message.error(e.message);
+    }
   };
   const handleInputChange = (fieldName, newValue) => {
     setFormValues((prevState) => ({
