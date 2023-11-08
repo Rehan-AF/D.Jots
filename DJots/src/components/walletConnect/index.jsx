@@ -26,6 +26,7 @@ const Template = ({ children }) => {
   // app 0xE40439e97b32c3e1E8b4e45FCa9F86ae17d771a8
   // app new 0x3d13c9613429753DF4A847B93184494aEcCB3998
   // lastest app with new data 0x845e5DfF73F366Ccd4451fb2BA13A2caE856De11
+  // final contract
   useEffect(() => {
     const contractAddress = '0x845e5DfF73F366Ccd4451fb2BA13A2caE856De11';
     const contractABI = abi.abi;

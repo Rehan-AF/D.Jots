@@ -98,19 +98,35 @@ const ResearchPaperHash = () => {
     });
   };
   const handleOk = async () => {
-    console.log(contract.contract);
-    const transaction = await contract.contract.blockResearchPaper(
-      formValues.name,
-      fileDetails.fileName,
-      fileDetails.fileSize,
-      fileDetails.lastModified,
-      hash,
-      {
-        gasLimit: 3000000,
-      }
-    );
-
-    await transaction.wait();
+    try {
+      message.info('transaction is in process');
+      const transaction = await contract.contract.blockResearchPaper(
+        formValues.name,
+        fileDetails.fileName,
+        fileDetails.fileSize,
+        fileDetails.lastModified,
+        hash,
+        {
+          gasLimit: 3000000,
+        }
+      );
+      setFormValues({
+        name: '',
+      });
+      setHash('');
+      setFileDetails({
+        fileName: '',
+        fileSize: '',
+        lastModified: '',
+      });
+      setProgress(0);
+      setLoading(false);
+      handleCancel();
+      message.info('you will receive notification from metaMask on success');
+      await transaction.wait();
+    } catch (e) {
+      message.error(e.message);
+    }
   };
   const handleInputChange = (fieldName, newValue) => {
     setFormValues((prevState) => ({
