@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Button, Modal, message } from 'antd';
+import { Button, Modal, Spin, message } from 'antd';
 // import { ethers } from 'hardhat';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -22,6 +22,7 @@ const ResearchPaperHash = () => {
     lastModified: '',
   });
   const [progress, setProgress] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -43,6 +44,7 @@ const ResearchPaperHash = () => {
   };
 
   const calculateHash = (file) => {
+    setLoading(true);
     const chunkSize = 700 * 1024 * 1024; // 700 MB chunks (adjust as needed)
     const chunks = Math.ceil(file.size / chunkSize);
     let currentChunk = 0;
@@ -57,6 +59,7 @@ const ResearchPaperHash = () => {
     };
 
     fileReader.onload = (e) => {
+      setLoading(false);
       const arrayBuffer = e.target.result;
       crypto.subtle.digest('SHA-256', arrayBuffer).then((hashBuffer) => {
         const hashArray = Array.from(new Uint8Array(hashBuffer));
@@ -131,7 +134,11 @@ const ResearchPaperHash = () => {
         onCancel={handleCancel}
         onOk={handleOk}
         footer={[
-          <Button key="submit" onClick={handleOk}>
+          <Button
+            key="submit"
+            onClick={handleOk}
+            disabled={loading || (progress > 0 && progress < 100)}
+          >
             Submit
           </Button>,
         ]}
@@ -183,9 +190,16 @@ const ResearchPaperHash = () => {
             disabled={true}
           />
           <input className="mt-2" type="file" onChange={handleFileChange} />
+          {loading ? (
+            <div>
+              file loading please wait...
+              <br />
+              <Spin />
+            </div>
+          ) : null}
           {progress > 0 && progress < 100 && (
             <div className="mt-2">
-              <Progress percent={progress} />
+              <Progress percent={progress.toFixed(2)} />
             </div>
           )}
         </div>
