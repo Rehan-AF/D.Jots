@@ -1,15 +1,13 @@
 import { message } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const FileHashCalculator = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
   const [hash, setHash] = useState(null);
   const [progress, setProgress] = useState(0);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setSelectedFile(file);
-    setHash(null); // Reset hash when a new file is selected
+    setHash(null);
     setProgress(0);
 
     if (file) {
@@ -18,7 +16,7 @@ const FileHashCalculator = () => {
   };
 
   const calculateHash = (file) => {
-    const chunkSize = 700 * 1024 * 1024; // 700 MB chunks (adjust as needed)
+    const chunkSize = 700 * 1024 * 1024;
     const chunks = Math.ceil(file.size / chunkSize);
     let currentChunk = 0;
     const fileReader = new FileReader();

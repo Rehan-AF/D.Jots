@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Progress } from 'antd';
 
-const ArticleHash = () => {
+const ResearchPaperHash = () => {
   const contract = useSelector((state) => state.productsSlice.contract);
 
   const [formValues, setFormValues] = useState({
@@ -96,7 +96,7 @@ const ArticleHash = () => {
   };
   const handleOk = async () => {
     console.log(contract.contract);
-    const transaction = await contract.contract.blockArticles(
+    const transaction = await contract.contract.blockResearchPaper(
       formValues.name,
       fileDetails.fileName,
       fileDetails.fileSize,
@@ -125,7 +125,7 @@ const ArticleHash = () => {
         Upload hash
       </button>
       <Modal
-        title="Notes"
+        title="File hash"
         open={state.open}
         confirmLoading={state.loading}
         onCancel={handleCancel}
@@ -174,8 +174,8 @@ const ArticleHash = () => {
             disabled={true}
           />
           <input
-            id="articleHash"
-            name="articleHash"
+            id="researchPaperHash"
+            name="researchPaperHash"
             type="text"
             placeholder="Article Hash"
             className="p-2 outline-none border border-[#D9D9D9] rounded-md mt-2 resize-none "
@@ -194,4 +194,4 @@ const ArticleHash = () => {
   );
 };
 
-export default ArticleHash;
+export default ResearchPaperHash;
