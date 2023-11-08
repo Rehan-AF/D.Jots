@@ -50,7 +50,7 @@ const NotesComponent = () => {
         className="bg-blue-500 px-4 py-3 w-full text-xl rounded text-white"
         onClick={handleModalOpen}
       >
-        write note
+        Write your note
       </button>
       <Modal
         title="Notes"

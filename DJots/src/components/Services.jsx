@@ -3,11 +3,11 @@ import articles from '../assets/articles.jpg';
 import Prediction from '../assets/predictions1.jpg';
 import soon from '../assets/soon.jpg';
 import research from '../assets/research.jpg';
-import Modal from 'antd/es/modal/Modal';
 import 'animate.css';
 import NotesComponent from './notes';
 import PredictionComponent from './prediction';
 import ArticleHash from './HashArticle';
+import ResearchPaperHash from './hashResearchPaper';
 const posts = [
   {
     id: 1,
@@ -45,7 +45,7 @@ const posts = [
     description:
       'Preserve your research securely on the blockchain with D.Jots. Safeguard your findings with the resilience of decentralized technology',
     image: research,
-    buttonText: 'Upload',
+    buttonText: <ResearchPaperHash />,
   },
   {
     id: 2,

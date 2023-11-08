@@ -25,9 +25,9 @@ const Template = ({ children }) => {
   // messgae 0x9e795874E53e745Badc7f44a682299B35d864307
   // app 0xE40439e97b32c3e1E8b4e45FCa9F86ae17d771a8
   // app new 0x3d13c9613429753DF4A847B93184494aEcCB3998
-  // lastest app with new data 0x82CD9688627B19b91a006216C0225f0Cd0c28CE9
+  // lastest app with new data 0x845e5DfF73F366Ccd4451fb2BA13A2caE856De11
   useEffect(() => {
-    const contractAddress = '0x82CD9688627B19b91a006216C0225f0Cd0c28CE9';
+    const contractAddress = '0x845e5DfF73F366Ccd4451fb2BA13A2caE856De11';
     const contractABI = abi.abi;
 
     const loadBlockchainData = async () => {
