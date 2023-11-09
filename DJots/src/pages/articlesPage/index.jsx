@@ -11,6 +11,7 @@ const ShowArticles = () => {
       title: 'Time',
       dataIndex: 'time',
       key: 'time',
+      className: 'text-blue-400 font-bold',
     },
     {
       title: 'Name',
@@ -79,9 +80,19 @@ const ShowArticles = () => {
   //   console.log(notes[0][3]);
   return (
     <div className="p-5">
-      <Button onClick={getData} className='bg-[#3f065c] px-5 py-5 text-white flex justify-center items-center '>Get Data</Button>
-      <div className="mt-5">
-        <Table className="" dataSource={articles} columns={columns} />
+      <Button
+        onClick={getData}
+        className="bg-[#3f065c] px-5 py-5 text-white flex justify-center items-center "
+      >
+        Get Data
+      </Button>
+      <div className="mt-5 w-full">
+        <Table
+          className="w-full"
+          dataSource={articles}
+          columns={columns}
+          scroll={{ x: true }}
+        />
       </div>
       <div></div>
     </div>

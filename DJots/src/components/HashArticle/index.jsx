@@ -145,7 +145,7 @@ const ArticleHash = () => {
         Upload hash
       </button>
       <Modal
-        title="Notes"
+        title="File Hash"
         open={state.open}
         confirmLoading={state.loading}
         onCancel={handleCancel}
