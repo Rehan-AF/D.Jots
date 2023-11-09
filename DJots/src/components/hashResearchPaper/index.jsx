@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Button, Modal, Spin, message } from 'antd';
-// import { ethers } from 'hardhat';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Progress } from 'antd';
@@ -79,7 +78,6 @@ const ResearchPaperHash = () => {
     };
 
     fileReader.onerror = () => {
-      // Handle errors
       message.error('Error reading file');
     };
 

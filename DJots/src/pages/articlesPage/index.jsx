@@ -1,5 +1,5 @@
 import { Button, Table } from 'antd';
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const ShowArticles = () => {
