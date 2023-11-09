@@ -1,6 +1,4 @@
 import HeaderImage from '../assets/headerimg.png';
-import { useState } from 'react';
-import { Dialog } from '@headlessui/react';
 
 export default function Header() {
   return (

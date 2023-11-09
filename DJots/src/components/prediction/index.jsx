@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Button, Modal, message } from 'antd';
-// import { ethers } from 'hardhat';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
